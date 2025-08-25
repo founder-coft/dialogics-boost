@@ -14,7 +14,262 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      diagnostic_responses: {
+        Row: {
+          answer_text: string | null
+          answer_value: number | null
+          category: string
+          created_at: string
+          diagnostic_id: string
+          id: string
+          question_key: string
+          question_text: string
+          weight: number | null
+        }
+        Insert: {
+          answer_text?: string | null
+          answer_value?: number | null
+          category: string
+          created_at?: string
+          diagnostic_id: string
+          id?: string
+          question_key: string
+          question_text: string
+          weight?: number | null
+        }
+        Update: {
+          answer_text?: string | null
+          answer_value?: number | null
+          category?: string
+          created_at?: string
+          diagnostic_id?: string
+          id?: string
+          question_key?: string
+          question_text?: string
+          weight?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "diagnostic_responses_diagnostic_id_fkey"
+            columns: ["diagnostic_id"]
+            isOneToOne: false
+            referencedRelation: "diagnostics"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      diagnostics: {
+        Row: {
+          action_plan: Json | null
+          ai_analysis_summary: string | null
+          communication_score: number | null
+          completed_at: string | null
+          created_at: string
+          finance_score: number | null
+          fundraising_score: number | null
+          governance_score: number | null
+          id: string
+          impact_score: number | null
+          maturity_level: Database["public"]["Enums"]["maturity_level"] | null
+          organization_id: string
+          overall_score: number | null
+          pdf_report_url: string | null
+          status: Database["public"]["Enums"]["diagnostic_status"]
+          swot_analysis: Json | null
+          title: string
+          transparency_score: number | null
+          updated_at: string
+        }
+        Insert: {
+          action_plan?: Json | null
+          ai_analysis_summary?: string | null
+          communication_score?: number | null
+          completed_at?: string | null
+          created_at?: string
+          finance_score?: number | null
+          fundraising_score?: number | null
+          governance_score?: number | null
+          id?: string
+          impact_score?: number | null
+          maturity_level?: Database["public"]["Enums"]["maturity_level"] | null
+          organization_id: string
+          overall_score?: number | null
+          pdf_report_url?: string | null
+          status?: Database["public"]["Enums"]["diagnostic_status"]
+          swot_analysis?: Json | null
+          title?: string
+          transparency_score?: number | null
+          updated_at?: string
+        }
+        Update: {
+          action_plan?: Json | null
+          ai_analysis_summary?: string | null
+          communication_score?: number | null
+          completed_at?: string | null
+          created_at?: string
+          finance_score?: number | null
+          fundraising_score?: number | null
+          governance_score?: number | null
+          id?: string
+          impact_score?: number | null
+          maturity_level?: Database["public"]["Enums"]["maturity_level"] | null
+          organization_id?: string
+          overall_score?: number | null
+          pdf_report_url?: string | null
+          status?: Database["public"]["Enums"]["diagnostic_status"]
+          swot_analysis?: Json | null
+          title?: string
+          transparency_score?: number | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "diagnostics_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      organizations: {
+        Row: {
+          address: string | null
+          city: string | null
+          cnpj: string | null
+          created_at: string
+          description: string | null
+          email: string
+          employees_count: number | null
+          foundation_year: number | null
+          id: string
+          name: string
+          organization_type: Database["public"]["Enums"]["organization_type"]
+          phone: string | null
+          state: string | null
+          updated_at: string
+          website: string | null
+          whatsapp: string | null
+          zip_code: string | null
+        }
+        Insert: {
+          address?: string | null
+          city?: string | null
+          cnpj?: string | null
+          created_at?: string
+          description?: string | null
+          email: string
+          employees_count?: number | null
+          foundation_year?: number | null
+          id?: string
+          name: string
+          organization_type: Database["public"]["Enums"]["organization_type"]
+          phone?: string | null
+          state?: string | null
+          updated_at?: string
+          website?: string | null
+          whatsapp?: string | null
+          zip_code?: string | null
+        }
+        Update: {
+          address?: string | null
+          city?: string | null
+          cnpj?: string | null
+          created_at?: string
+          description?: string | null
+          email?: string
+          employees_count?: number | null
+          foundation_year?: number | null
+          id?: string
+          name?: string
+          organization_type?: Database["public"]["Enums"]["organization_type"]
+          phone?: string | null
+          state?: string | null
+          updated_at?: string
+          website?: string | null
+          whatsapp?: string | null
+          zip_code?: string | null
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          email: string
+          full_name: string | null
+          id: string
+          role: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          email: string
+          full_name?: string | null
+          id?: string
+          role?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          email?: string
+          full_name?: string | null
+          id?: string
+          role?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      resources: {
+        Row: {
+          category: string
+          created_at: string
+          description: string | null
+          download_url: string | null
+          file_url: string | null
+          id: string
+          is_active: boolean | null
+          resource_type: string
+          tags: string[] | null
+          target_weaknesses: string[] | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          description?: string | null
+          download_url?: string | null
+          file_url?: string | null
+          id?: string
+          is_active?: boolean | null
+          resource_type: string
+          tags?: string[] | null
+          target_weaknesses?: string[] | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string | null
+          download_url?: string | null
+          file_url?: string | null
+          id?: string
+          is_active?: boolean | null
+          resource_type?: string
+          tags?: string[] | null
+          target_weaknesses?: string[] | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +278,14 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      diagnostic_status: "em_andamento" | "concluido" | "cancelado"
+      maturity_level: "bronze" | "prata" | "ouro" | "diamante"
+      organization_type:
+        | "ong"
+        | "associacao"
+        | "fundacao"
+        | "cooperativa"
+        | "outra"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +412,16 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      diagnostic_status: ["em_andamento", "concluido", "cancelado"],
+      maturity_level: ["bronze", "prata", "ouro", "diamante"],
+      organization_type: [
+        "ong",
+        "associacao",
+        "fundacao",
+        "cooperativa",
+        "outra",
+      ],
+    },
   },
 } as const
