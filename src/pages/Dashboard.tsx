@@ -247,7 +247,7 @@ const Dashboard = () => {
               </Button>
               <Button variant="hero" size="lg" onClick={() => navigate("/chat-diagnostic")}>
                 <MessageCircle className="mr-2 h-5 w-5" />
-                Chat com Dona do Dialogics
+                Chat com IA da Cuidatoria
               </Button>
               <Button variant="professional" size="lg" onClick={() => navigate("/resources")}>
                 <FileText className="mr-2 h-5 w-5" />
