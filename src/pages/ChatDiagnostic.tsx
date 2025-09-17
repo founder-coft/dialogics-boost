@@ -439,7 +439,7 @@ const ChatDiagnostic = () => {
     const welcomeMessage: Message = {
       id: "welcome",
       type: "bot", 
-      content: "Olá! Eu sou a Dona do Dialogics, sua consultora especializada em organizações da sociedade civil. 🌟\n\nVou te ajudar a fazer um diagnóstico completo da maturidade organizacional da sua OSC. Será uma conversa bem tranquila, dividida em 7 módulos. Vamos começar?",
+      content: "Olá! Eu sou a IA da Cuidatoria, sua consultora especializada em organizações da sociedade civil. 🌟\n\nVou te ajudar a fazer um diagnóstico completo da maturidade organizacional da sua OSC. Será uma conversa bem tranquila, dividida em 7 módulos. Vamos começar?",
       timestamp: new Date()
     };
     
