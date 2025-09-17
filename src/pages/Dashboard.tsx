@@ -12,7 +12,8 @@ import {
   TrendingUp, 
   Award,
   LogOut,
-  ChevronRight
+  ChevronRight,
+  MessageCircle
 } from "lucide-react";
 
 interface Organization {
@@ -242,7 +243,11 @@ const Dashboard = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="hero" size="lg" onClick={() => navigate("/diagnostic")}>
                 <Plus className="mr-2 h-5 w-5" />
-                Novo Diagnóstico
+                Diagnóstico Tradicional
+              </Button>
+              <Button variant="hero" size="lg" onClick={() => navigate("/chat-diagnostic")}>
+                <MessageCircle className="mr-2 h-5 w-5" />
+                Chat com Dona do Dialogics
               </Button>
               <Button variant="professional" size="lg" onClick={() => navigate("/resources")}>
                 <FileText className="mr-2 h-5 w-5" />
